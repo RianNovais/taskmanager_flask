@@ -1,0 +1,2 @@
+Design of a simple task manager to exercise CRUD concepts on a SQLite3 database using Flask and SQLAlchemy.
+Projeto de um gerenciador de tarefas simples, a fim de exercitar conceitos de CRUD em um banco de dados SQLite3 utilizando Flask e SQLAlchemy.
