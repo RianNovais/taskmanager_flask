@@ -1,5 +1,8 @@
 from app import db
 
+#criação do modelo da tabela tasks que será migrada pro banco de dados
+
+
 class Task(db.Model):
     __tablename__ = 'tasks'
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
@@ -14,7 +17,7 @@ class Task(db.Model):
         self.status = status
         self.startDate = startDate
 
-        
+
         
 
 

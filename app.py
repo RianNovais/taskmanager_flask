@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-#nesse arquivo teremos configurações do nosso app, e tudo que se relaciona com ele.
+#In this file we will have our app's settings, and everything related to it.
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -11,11 +11,11 @@ app.config.from_object('config')
 
 db = SQLAlchemy(app)
 
-#config migrate object pra realizar migrações
+#config migrate object to perform migrations
 
 migrate = Migrate(app, db)
 
-#importando as rotas que irá compor o app
+#importing the routes that will make up the app
 from controllers import routes
-#importando o model tables para migração
+#importing the model tables for migration
 from models import tables

@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template
-#nesse arquivo são definidas as rotas, nos importamos o app e aqui instauramos as rotas
+
+#In this file the routes are defined, we import the app and here we install the routes
 
 @app.route('/')
 def index():
