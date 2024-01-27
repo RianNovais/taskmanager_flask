@@ -5,7 +5,7 @@
 
 
 
-![Screenshot](https://img001.prntscr.com/file/img001/eGfL-7GBT1auxzOIVNxkWw.png)
+![App Screenshot](https://img001.prntscr.com/file/img001/eGfL-7GBT1auxzOIVNxkWw.png)
 
 
 
