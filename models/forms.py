@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, DateField, SelectField
+from wtforms import StringField, TextAreaField, DateField, SelectField, IntegerField
 from wtforms.validators import DataRequired
 
 class AddNewTaskForm(FlaskForm):
@@ -8,3 +8,7 @@ class AddNewTaskForm(FlaskForm):
     startDate = DateField('startDate', validators=[DataRequired()])
     status = SelectField('status', choices=['Completed', 'In progress'], validators=[DataRequired()])
     priority = SelectField('status', choices=['High', 'Medium', 'Low'], validators=[DataRequired()])
+
+
+class SearchTaskForm(FlaskForm):
+    id = IntegerField('taskId', validators=[DataRequired()])

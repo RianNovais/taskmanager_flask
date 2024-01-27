@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>Complete Task</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Complete Task</h2>
+    
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="" method="POST">
+                    {{ form.csrf_token }}
+
+                    <div class="form-group">
+                        <label for="taskName">Id Task to Complete</label>
+                        {{ form.id(class="form-control", placeholder="Enter Id task to change status to Completed") }}
+                       
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary mt-4">Remove Task</button>
+                </form>
+
+                {% with messages = get_flashed_messages() %}
+                
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li class="alert alert-info alert-dismissible fade show mt-3">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endwith %}
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

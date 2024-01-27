@@ -11,9 +11,9 @@
     <div class="container mt-4">
         <h2 style="text-align: center;">Task Manager</h2>
         
-        <a class="btn btn-success" href="{{url_for('new_task')}}">Adicionar Nova Tarefa</a>
-        <a class="btn btn-danger">Remover Tarefa</a>
-        <a class="btn btn-info">Completar Tarefa</a>
+        <a class="btn btn-success mb-1" href="{{url_for('new_task')}}">Add New Task</a>
+        <a class="btn btn-danger mb-1" href="{{url_for('remove_task')}}">Remove Task</a>
+        <a class="btn btn-info mb-1" style="color: white;" href="{{url_for('complete_task')}}">Complete Task</a>
     
         <div class="row mt-5">
             <div class="col-md-6">
@@ -21,11 +21,29 @@
                     <div class="card-body">
                         <h5 class="card-title">Completed Tasks</h5>
                         
+                        {% if tasks %}
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
+                            {% for task in tasks %} 
+                                {% if task.status == "Completed" %}
+                                    <li class="list-group-item">
+                                        <h6 class="mb-1">#Task - <b>{{ loop.index }}</b></h6>
+                                        <p class="mb-1"><strong>Name:</strong> {{ task.name }}</p>
+                                        <p class="mb-1"><strong>ID:</strong> {{ task.id }}</p>
+                                        <p class="mb-1"><strong>Description:</strong> {{ task.description }}</p>
+                                        <p class="mb-1"><strong>Start Date:</strong> {{ task.startDate }}</p>
+                                        {% if task.priority == "High" %}
+                                            <p class="mb-1" style="color: red;"><strong>Priority: {{ task.priority }}</strong></p>
+                                        {% else %}
+                                            <p class="mb-1"><strong>Priority:</strong> {{ task.priority }}</p>
+                                        {% endif %}      
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
+                        {% endif %}
+
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -34,12 +52,29 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tasks In Progress</h5>
-                        <!-- <p class="card-text">Conteúdo do Card 2.</p> -->
+                        {% if tasks %}
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
+                            {% for task in tasks %}
+                                {% if task.status == "In progress" %}
+                                <li class="list-group-item">
+                                    <h6 class="mb-1">#Task - <b>{{ loop.index }}</b></h6>
+                                    <p class="mb-1"><strong>Name:</strong> {{ task.name }}</p>
+                                    <p class="mb-1"><strong>ID:</strong> {{ task.id }}</p>
+                                    <p class="mb-1"><strong>Description:</strong> {{ task.description }}</p>
+                                    <p class="mb-1"><strong>Start Date:</strong> {{ task.startDate }}</p>
+                                    {% if task.priority == "High" %}
+                                        <p class="mb-1" style="color: red;"><strong>Priority: {{ task.priority }}</strong></p>
+                                    {% else %}
+                                        <p class="mb-1"><strong>Priority:</strong> {{ task.priority }}</p>
+                                    {% endif %}
+                                </li>
+
+                                {% endif %}
+
+                            {% endfor %}
                         </ul>
+                        {% endif %}
+                        
 
                     </div>
                 </div>
