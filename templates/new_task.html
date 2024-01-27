@@ -13,32 +13,34 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="" method="post">
+                    {{ form.csfr }}
+
                     <div class="form-group">
                         <label for="taskName">Name</label>
-                        <input type="text" class="form-control" id="taskName" placeholder="Enter task name">
+                        {{ form.name(class="form-control", placeholder="Enter task name") }}
+                       
                     </div>
-                    
+            
                     <div class="form-group">
                         <label for="taskDescription">Task Description</label>
-                        <textarea class="form-control" id="taskDescription" rows="3" placeholder="Enter task description"></textarea>
+                        {{ form.description(class="form-control", rows=3, placeholder="Enter task description") }}
                     </div>
 
                     <div class="form-group">
                         <label for="taskPriority">Start Date</label>
-                        <input type="date" class="form-control" id="taskPriority" placeholder="Enter status priority">
+                        {{ form.startDate(class="form-control", placeholder="Start Date") }}      
                     </div>
 
                     <div class="form-group">
                         <label for="taskStatus">Status</label>
-                        <input type="text" class="form-control" id="taskStatus" placeholder="Enter status task">
+                        {{ form.status(class="form-control", placeholder="Enter status task") }}                  
                     </div>
 
                     <div class="form-group">
                         <label for="taskPriority">Priority</label>
-                        <input type="text" class="form-control" id="taskPriority" placeholder="Enter status priority">
+                        {{ form.priority(class="form-control", placeholder="Enter priority") }}           
                     </div>
                     
-    
                     <button type="submit" class="btn btn-primary">Add Task</button>
                 </form>
             </div>
